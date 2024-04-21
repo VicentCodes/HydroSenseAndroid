@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="PH">#a3f5a0</color>
+    <color name="ORP">#ecf9a7</color>
+    <color name="Temp">#06CCA2</color>
+    <color name="TDS">#74A8FD</color>
+    <color name="Turbidity">#FFB74D</color>
+</resources>

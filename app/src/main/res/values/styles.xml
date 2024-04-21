@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <style name="customStyleChip" parent="Widget.MaterialComponents.Chip.Choice">
+        <item name="chipBackgroundColor">@drawable/chip_background_color</item>
+        <item name="android:textColor">@drawable/chip_text_color</item>
+        <item name="chipStrokeColor">@drawable/corner_background_color</item>
+        
+    </style>
+    
+</resources>
