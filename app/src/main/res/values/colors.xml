@@ -8,4 +8,5 @@
     <color name="Temp">#06CCA2</color>
     <color name="TDS">#74A8FD</color>
     <color name="Turbidity">#FFB74D</color>
+    <color name="background">#161c1a</color>
 </resources>

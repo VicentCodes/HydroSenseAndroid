@@ -8,359 +8,520 @@
     tools:context=".MainActivity">
 
 
-    <androidx.core.widget.NestedScrollView
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-android:fillViewport="true">
-        <androidx.constraintlayout.widget.ConstraintLayout
+        >
+
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nestedScrollView"
+
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
 
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guideline"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.6" />
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.6" />
 
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/cardPH"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginEnd="24dp"
-                android:backgroundTint="@color/PH"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/guideline">
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardPH"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginEnd="24dp"
+                    android:backgroundTint="@color/PH"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/guideline">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/expPH"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/expPH"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
 
-                    <TextView
-                        android:id="@+id/txPH"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
-                        android:fontFamily="@font/karla_extra_bold"
-                        android:text="PH"
+                        <TextView
+                            android:id="@+id/txPH"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="16dp"
+                            android:fontFamily="@font/karla_extra_bold"
+                            android:text="PH"
 
-                        android:textSize="32sp"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                            android:textSize="32sp"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
 
-                    <TextView
-                        android:id="@+id/valuePH"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginBottom="16dp"
-                        android:fontFamily="@font/karla_bold"
-                        android:lineSpacingExtra="8sp"
-                        android:textAlignment="center"
-                        android:textSize="36sp"
-                        android:textStyle="bold"
-                        android:typeface="normal"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        tools:text="10" />
-
-
-                    <TextView
-                        android:id="@+id/lastValPH"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="30dp"
-                        android:fontFamily="@font/karla_bold"
-                        android:textSize="14sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="@+id/txPH"
-                        app:layout_constraintTop_toBottomOf="@+id/txPH"
-                        tools:text="Last value:  00/mm hh/mn" />
+                        <TextView
+                            android:id="@+id/valuePH"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="16dp"
+                            android:layout_marginBottom="16dp"
+                            android:fontFamily="@font/karla_bold"
+                            android:lineSpacingExtra="8sp"
+                            android:textAlignment="center"
+                            android:textSize="36sp"
+                            android:textStyle="bold"
+                            android:typeface="normal"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:text="10" />
 
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                        <TextView
+                            android:id="@+id/lastValPH"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="30dp"
+                            android:fontFamily="@font/karla_bold"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="@+id/txPH"
+                            app:layout_constraintTop_toBottomOf="@+id/txPH"
+                            tools:text="Last value:  00/mm hh/mn" />
 
 
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/cardORP"
-                android:layout_width="0dp"
-                android:backgroundTint="@color/ORP"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="-14dp"
-                app:layout_constraintEnd_toEndOf="@+id/cardPH"
-                app:layout_constraintStart_toStartOf="@+id/cardPH"
-                app:layout_constraintTop_toBottomOf="@+id/cardPH">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/expORP"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:id="@+id/txORP"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
-                        android:fontFamily="@font/karla_extra_bold"
-                        android:text="ORP"
-                        android:textSize="22sp"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/valueORP"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginBottom="16dp"
-                        android:fontFamily="@font/karla_bold"
-                        android:lineSpacingExtra="8sp"
-                        android:textAlignment="center"
-                        android:textSize="26sp"
-                        android:textStyle="bold"
-                        android:typeface="normal"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        tools:text="10" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-                    <TextView
-                        android:id="@+id/lastValORP"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="30dp"
-                        android:fontFamily="@font/karla_bold"
-                        android:textSize="14sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
+                </com.google.android.material.card.MaterialCardView>
 
-                        app:layout_constraintStart_toStartOf="@+id/txORP"
-                        app:layout_constraintTop_toBottomOf="@+id/txORP"
-                        tools:text="Last value:  00/mm hh/mn"
-                        tools:visibility="gone" />
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardORP"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="-14dp"
+                    android:backgroundTint="@color/ORP"
+                    app:layout_constraintEnd_toEndOf="@+id/cardPH"
+                    app:layout_constraintStart_toStartOf="@+id/cardPH"
+                    app:layout_constraintTop_toBottomOf="@+id/cardPH">
 
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/expORP"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                        <TextView
+                            android:id="@+id/txORP"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="16dp"
+                            android:fontFamily="@font/karla_extra_bold"
+                            android:text="ORP"
+                            android:textSize="22sp"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
 
-
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/cardTEMP"
-                android:layout_width="0dp"
-                android:backgroundTint="@color/Temp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="-14dp"
-                app:layout_constraintEnd_toEndOf="@+id/cardORP"
-                app:layout_constraintStart_toStartOf="@+id/cardORP"
-                app:layout_constraintTop_toBottomOf="@+id/cardORP">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/expTEMP"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:id="@+id/txTEMP"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
-                        android:fontFamily="@font/karla_extra_bold"
-                        android:text="Temperature"
-                        android:textSize="22sp"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/valueTEMP"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginBottom="16dp"
-                        android:fontFamily="@font/karla_bold"
-                        android:lineSpacingExtra="8sp"
-                        android:textAlignment="center"
-                        android:textSize="26sp"
-                        android:textStyle="bold"
-                        android:typeface="normal"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        tools:text="10" />
+                        <TextView
+                            android:id="@+id/valueORP"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="16dp"
+                            android:layout_marginBottom="16dp"
+                            android:fontFamily="@font/karla_bold"
+                            android:lineSpacingExtra="8sp"
+                            android:textAlignment="center"
+                            android:textSize="26sp"
+                            android:textStyle="bold"
+                            android:typeface="normal"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:text="10" />
 
 
+                        <TextView
+                            android:id="@+id/lastValORP"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="30dp"
+                            android:fontFamily="@font/karla_bold"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+
+                            app:layout_constraintStart_toStartOf="@+id/txORP"
+                            app:layout_constraintTop_toBottomOf="@+id/txORP"
+                            tools:text="Last value:  00/mm hh/mn"
+                            tools:visibility="gone" />
 
 
-                    <TextView
-                        android:id="@+id/lastValTEMP"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="30dp"
-                        android:fontFamily="@font/karla_bold"
-                        tools:text="Last value:  00/mm hh/mn"
-                        android:textSize="14sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="@+id/txTEMP"
-                        app:layout_constraintTop_toBottomOf="@+id/txTEMP" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardTEMP"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="-14dp"
+                    android:backgroundTint="@color/Temp"
+                    app:layout_constraintEnd_toEndOf="@+id/cardORP"
+                    app:layout_constraintStart_toStartOf="@+id/cardORP"
+                    app:layout_constraintTop_toBottomOf="@+id/cardORP">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/expTEMP"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/txTEMP"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="16dp"
+                            android:fontFamily="@font/karla_extra_bold"
+                            android:text="Temperature"
+                            android:textSize="22sp"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/valueTEMP"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="16dp"
+                            android:layout_marginBottom="16dp"
+                            android:fontFamily="@font/karla_bold"
+                            android:lineSpacingExtra="8sp"
+                            android:textAlignment="center"
+                            android:textSize="26sp"
+                            android:textStyle="bold"
+                            android:typeface="normal"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:text="10" />
 
 
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/cardTDS"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="-14dp"
-                android:backgroundTint="@color/TDS"
-                app:layout_constraintEnd_toEndOf="@+id/cardTEMP"
-                app:layout_constraintStart_toStartOf="@+id/cardTEMP"
-                app:layout_constraintTop_toBottomOf="@+id/cardTEMP">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/expTDS"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:id="@+id/txTDS"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
-                        android:fontFamily="@font/karla_extra_bold"
-                        android:text="TDS"
-                        android:textSize="22sp"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/valueTDS"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginBottom="16dp"
-                        android:fontFamily="@font/karla_bold"
-                        android:lineSpacingExtra="8sp"
-                        android:textAlignment="center"
-                        android:textSize="26sp"
-                        android:textStyle="bold"
-                        android:typeface="normal"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        tools:text="10" />
+                        <TextView
+                            android:id="@+id/lastValTEMP"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="30dp"
+                            android:fontFamily="@font/karla_bold"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="@+id/txTEMP"
+                            app:layout_constraintTop_toBottomOf="@+id/txTEMP"
+                            tools:text="Last value:  00/mm hh/mn" />
 
 
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-                    <TextView
-                        android:id="@+id/lastValTDS"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="30dp"
-                        android:fontFamily="@font/karla_bold"
-                        tools:text="Last value:  00/mm hh/mn"
-                        android:textSize="14sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="@+id/txTDS"
-                        app:layout_constraintTop_toBottomOf="@+id/txTDS" />
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardTDS"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="-14dp"
+                    android:backgroundTint="@color/TDS"
+                    app:layout_constraintEnd_toEndOf="@+id/cardTEMP"
+                    app:layout_constraintStart_toStartOf="@+id/cardTEMP"
+                    app:layout_constraintTop_toBottomOf="@+id/cardTEMP">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/expTDS"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/txTDS"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="16dp"
+                            android:fontFamily="@font/karla_extra_bold"
+                            android:text="TDS"
+                            android:textSize="22sp"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/valueTDS"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="16dp"
+                            android:layout_marginBottom="16dp"
+                            android:fontFamily="@font/karla_bold"
+                            android:lineSpacingExtra="8sp"
+                            android:textAlignment="center"
+                            android:textSize="26sp"
+                            android:textStyle="bold"
+                            android:typeface="normal"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:text="10" />
 
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                        <TextView
+                            android:id="@+id/lastValTDS"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="30dp"
+                            android:fontFamily="@font/karla_bold"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="@+id/txTDS"
+                            app:layout_constraintTop_toBottomOf="@+id/txTDS"
+                            tools:text="Last value:  00/mm hh/mn" />
 
 
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/cardTurbidity"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="-14dp"
-                android:backgroundTint="@color/Turbidity"
-                app:layout_constraintEnd_toEndOf="@+id/cardTEMP"
-                app:layout_constraintStart_toStartOf="@+id/cardTEMP"
-                app:layout_constraintTop_toBottomOf="@+id/cardTDS">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/expTurbidity"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:id="@+id/txTurbidity"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
-                        android:fontFamily="@font/karla_extra_bold"
-                        android:text="Turbidity"
-                        android:textSize="22sp"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/valueTurbidity"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginBottom="16dp"
-                        android:fontFamily="@font/karla_bold"
-                        android:lineSpacingExtra="8sp"
-                        android:textAlignment="center"
-                        android:textSize="26sp"
-                        android:textStyle="bold"
-                        android:typeface="normal"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        tools:text="10" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-                    <TextView
-                        android:id="@+id/lastValTurbidity"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="16dp"
-                        android:fontFamily="@font/karla_bold"
-                        android:textSize="14sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="@+id/txTurbidity"
-                        app:layout_constraintTop_toBottomOf="@+id/txTurbidity"
-                        tools:text="Last value:  00/mm hh/mn" />
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardTurbidity"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="-14dp"
+                    android:backgroundTint="@color/Turbidity"
+                    app:layout_constraintEnd_toEndOf="@+id/cardTEMP"
+                    app:layout_constraintStart_toStartOf="@+id/cardTEMP"
+                    app:layout_constraintTop_toBottomOf="@+id/cardTDS">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/expTurbidity"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/txTurbidity"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="16dp"
+                            android:fontFamily="@font/karla_extra_bold"
+                            android:text="Turbidity"
+                            android:textSize="22sp"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/valueTurbidity"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="16dp"
+                            android:layout_marginBottom="16dp"
+                            android:fontFamily="@font/karla_bold"
+                            android:lineSpacingExtra="8sp"
+                            android:textAlignment="center"
+                            android:textSize="26sp"
+                            android:textStyle="bold"
+                            android:typeface="normal"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:text="10" />
 
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                        <TextView
+                            android:id="@+id/lastValTurbidity"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="16dp"
+                            android:fontFamily="@font/karla_bold"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="@+id/txTurbidity"
+                            app:layout_constraintTop_toBottomOf="@+id/txTurbidity"
+                            tools:text="Last value:  00/mm hh/mn" />
 
 
-            </com.google.android.material.card.MaterialCardView>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                </com.google.android.material.card.MaterialCardView>
 
-    </androidx.core.widget.NestedScrollView>
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:backgroundTint="@color/background"
+                    app:cardCornerRadius="40dp"
+                    app:layout_constraintBottom_toTopOf="@+id/guideline2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <HorizontalScrollView
+                            android:id="@+id/horizontalScrollView"
+                            android:layout_width="0dp"
+                            android:layout_height="60dp"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginEnd="8dp"
+                            android:elevation="30dp"
+                            android:fillViewport="true"
+                            android:scrollbars="none"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+
+                            <com.google.android.material.chip.ChipGroup
+                                android:id="@+id/chipGroup"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginEnd="16dp"
+                                android:animateLayoutChanges="true"
+                                android:defaultFocusHighlightEnabled="true"
+                                android:focusedByDefault="true"
+                                android:paddingRight="16dp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.0"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:selectionRequired="true"
+                                app:singleLine="true"
+                                app:singleSelection="true">
+
+                                <com.google.android.material.chip.Chip
+                                    android:id="@+id/chipPH"
+                                    style="@style/customStyleChip"
+                                    animationMode="slide"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:checked="true"
+                                    android:focusedByDefault="true"
+                                    android:text="  PH  "
+                                    app:chipStrokeWidth="2dp" />
+
+                                <com.google.android.material.chip.Chip
+                                    android:id="@+id/chipORP"
+                                    style="@style/customStyleChip"
+                                    animationMode="slide"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="  ORP  "
+                                    app:chipStrokeWidth="2dp" />
+
+                                <com.google.android.material.chip.Chip
+                                    android:id="@+id/chipTEMP"
+                                    style="@style/customStyleChip"
+                                    animationMode="slide"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:focusedByDefault="true"
+                                    android:text="  Temp  "
+                                    app:chipStrokeWidth="2dp" />
+
+                                <com.google.android.material.chip.Chip
+                                    android:id="@+id/chipTDS"
+                                    style="@style/customStyleChip"
+                                    animationMode="slide"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:focusedByDefault="true"
+                                    android:text="  TDS  "
+                                    app:chipStrokeWidth="2dp" />
+
+                                <com.google.android.material.chip.Chip
+                                    android:id="@+id/chipTurbidity"
+                                    style="@style/customStyleChip"
+                                    animationMode="slide"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:focusedByDefault="true"
+                                    android:text="  Turbidity  "
+                                    app:chipStrokeWidth="2dp" />
+
+
+                            </com.google.android.material.chip.ChipGroup>
+
+
+                        </HorizontalScrollView>
+
+
+                        <com.github.mikephil.charting.charts.LineChart
+                            android:id="@+id/chart"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginBottom="8dp"
+                            app:layout_constraintBottom_toTopOf="@+id/valueGraph"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
+
+                        <TextView
+                            android:id="@+id/valueGraph"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginBottom="16dp"
+                            android:fontFamily="@font/karla_bold"
+                            android:textColor="#FFFFFF"
+                            android:textSize="24sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="@+id/chart" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.5" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+
+
 
 
 
