@@ -28,6 +28,17 @@
                 android:layout_height="match_parent">
 
 
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/showChart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:clickable="true"
+                    app:layout_constraintBottom_toBottomOf="@+id/materialCardView"
+                    app:layout_constraintEnd_toEndOf="@+id/materialCardView"
+                    app:layout_constraintTop_toBottomOf="@+id/materialCardView"
+                    app:srcCompat="@drawable/history" />
+
                 <androidx.constraintlayout.widget.Guideline
                     android:id="@+id/guideline"
                     android:layout_width="wrap_content"
@@ -39,12 +50,11 @@
                     android:id="@+id/cardPH"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginEnd="24dp"
+                    android:layout_marginTop="8dp"
                     android:backgroundTint="@color/PH"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/guideline">
+                    app:layout_constraintEnd_toEndOf="@+id/materialCardView"
+                    app:layout_constraintStart_toStartOf="@+id/materialCardView"
+                    app:layout_constraintTop_toBottomOf="@+id/textView2">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/expPH"
@@ -365,6 +375,7 @@
                 </com.google.android.material.card.MaterialCardView>
 
                 <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/materialCardView"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_marginStart="16dp"
@@ -478,25 +489,122 @@
                             android:layout_width="0dp"
                             android:layout_height="0dp"
                             android:layout_marginStart="8dp"
+                            android:layout_marginTop="-16dp"
                             android:layout_marginEnd="8dp"
-                            android:layout_marginBottom="8dp"
-                            app:layout_constraintBottom_toTopOf="@+id/valueGraph"
+                            android:layout_marginBottom="10dp"
+                            app:layout_constraintBottom_toTopOf="@+id/minMaxTitle"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
+                            app:layout_constraintTop_toBottomOf="@+id/spinnerRangeTimeParent22" />
 
                         <TextView
-                            android:id="@+id/valueGraph"
+                            android:id="@+id/minMaxTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginBottom="2dp"
+                            android:fontFamily="@font/karla_medium"
+                            android:textColor="#FFFFFF"
+                            android:textSize="22sp"
+                            app:layout_constraintBottom_toTopOf="@+id/minMaxValue"
+                            app:layout_constraintStart_toStartOf="@+id/chart"
+                            tools:text="Min / Max last 13 hours" />
+
+                        <TextView
+                            android:id="@+id/minMaxValue"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
                             android:layout_marginBottom="16dp"
                             android:fontFamily="@font/karla_bold"
                             android:textColor="#FFFFFF"
-                            android:textSize="24sp"
+                            android:textSize="28sp"
                             app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintStart_toStartOf="@+id/chart" />
+                            app:layout_constraintStart_toStartOf="@+id/chart"
+                            tools:text="0.0 - 0.0" />
 
+                        <TextView
+                            android:id="@+id/lastUpdateRead"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            android:fontFamily="@font/karla_light"
+
+                            android:lineSpacingExtra="2sp"
+                            android:textAlignment="textEnd"
+                            android:textColor="@color/white"
+                            android:textSize="12sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/minMaxValue"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/minMaxTitle"
+                            tools:text="Last Update: \n30 minutes ago" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/spinnerRangeTimeParent"
+                            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                            android:layout_width="130dp"
+                            android:layout_height="40dp"
+                            android:layout_marginTop="8dp"
+                            android:elevation="30dp"
+                            android:textColor="@color/white"
+                            android:visibility="gone"
+                            app:boxCornerRadiusBottomEnd="10dp"
+                            app:boxCornerRadiusBottomStart="10dp"
+                            app:boxCornerRadiusTopEnd="10dp"
+                            app:boxCornerRadiusTopStart="10dp"
+                            app:layout_constraintEnd_toEndOf="@+id/chart"
+                            app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView">
+
+                            <AutoCompleteTextView
+                                android:id="@+id/spinnerRangeTime"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:inputType="none"
+                                android:text="sssdd"
+                                android:textColor="@color/white"
+                                android:textSize="40sp" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/spinnerRangeTimeParent22"
+                            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@color/background"
+                            app:boxCornerRadiusBottomEnd="10dp"
+                            app:boxCornerRadiusBottomStart="10dp"
+                            app:boxCornerRadiusTopEnd="10dp"
+                            app:boxCornerRadiusTopStart="10dp"
+                            app:layout_constraintEnd_toEndOf="@+id/chart"
+                            app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView">
+
+                            <AutoCompleteTextView
+                                android:id="@+id/spinnerRangeTime22"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:inputType="none"
+                                tools:text="Most recent"
+                                android:textColor="@color/white" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <TextView
+                            android:id="@+id/dayLecture"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/karla_light"
+
+                            android:lineSpacingExtra="2sp"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/white"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/spinnerRangeTimeParent22"
+                            app:layout_constraintEnd_toStartOf="@+id/spinnerRangeTimeParent22"
+                            app:layout_constraintStart_toStartOf="@+id/chart"
+                            app:layout_constraintTop_toTopOf="@+id/spinnerRangeTimeParent22"
+                            tools:text="22/04 12:00" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -508,7 +616,20 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    app:layout_constraintGuide_percent="0.5" />
+                    app:layout_constraintGuide_percent="0.56" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/karla_bold"
+                    android:text="Lasted Data"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    android:typeface="sans"
+                    app:layout_constraintStart_toStartOf="@+id/cardPH"
+                    app:layout_constraintTop_toBottomOf="@+id/materialCardView" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
